@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1024175560615",
+    "project_id": "eunoia-clown",
+    "storage_bucket": "eunoia-clown.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024175560615:android:8c43149497b143d1960882",
+        "android_client_info": {
+          "package_name": "com.eunoia.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBonoQIX2kZNQEcNq-s6Wi2m3R_nFsABYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024175560615:android:7ed3c6d24676d0ba960882",
+        "android_client_info": {
+          "package_name": "com.eunoia.eunoiatest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBonoQIX2kZNQEcNq-s6Wi2m3R_nFsABYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
