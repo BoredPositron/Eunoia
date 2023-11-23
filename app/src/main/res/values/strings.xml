@@ -3,4 +3,5 @@
     <string name="ENTER_EMAIL">Enter E-Mail Address</string>
     <string name="ENTER_PASSWORD">Enter Password</string>
     <string name="LOGINTEXT">Log In</string>
+    <string name="LOGOUT">Log Out</string>
 </resources>
