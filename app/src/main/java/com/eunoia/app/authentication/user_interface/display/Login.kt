@@ -41,6 +41,7 @@ import com.eunoia.app.R
 import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.navigation.ROUTE_HOME
 import com.eunoia.app.navigation.ROUTE_LOGIN
+import com.eunoia.app.navigation.ROUTE_SIGNUP
 import com.eunoia.app.utils.Resource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,11 +86,12 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
             keyboardOptions = KeyboardOptions(
                 capitalization = KeyboardCapitalization.None,
                 autoCorrect = false,
-                keyboardType = KeyboardType.Email,
-                imeAction = ImeAction.Next
+                keyboardType = KeyboardType.Password,
+                imeAction = ImeAction.Done
             ),
             shape = CircleShape
         )
+
         Button(
             onClick = {
                 viewModel?.login(email, password)
@@ -97,6 +99,13 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
         ) {
             Text(text = stringResource(id = R.string.LOGINTEXT))
         }
+        Text(
+            text = "Sign Up",
+            modifier = Modifier.clickable{
+                navController!!.navigate(ROUTE_SIGNUP){
+                    popUpTo(ROUTE_LOGIN){inclusive = true}
+                }
+            })
     }
     loginFlow?.value?.let {
         when (it) {

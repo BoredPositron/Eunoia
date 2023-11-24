@@ -19,7 +19,6 @@ import com.eunoia.app.navigation.ROUTE_LOGIN
 fun BottomBar(viewModel: AuthViewModel?, navHostController: NavHostController?) {
 
     NavigationBar(
-        modifier = Modifier.height(60.dp)
     ) {
         NavigationBarItem(
             label = {

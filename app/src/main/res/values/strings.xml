@@ -4,4 +4,8 @@
     <string name="ENTER_PASSWORD">Enter Password</string>
     <string name="LOGINTEXT">Log In</string>
     <string name="LOGOUT">Log Out</string>
+    <string name="ENTER_NAME">Enter Name</string>
+    <string name="ENTER_USERNAME">Choose a Username</string>
+    <string name="ENTER_AGE">Enter your age</string>
+    <string name="ENTER_GENDER">Enter Gender</string>
 </resources>

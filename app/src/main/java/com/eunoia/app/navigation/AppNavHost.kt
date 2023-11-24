@@ -10,10 +10,13 @@ import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.authentication.user_interface.display.LoginScreen
 import com.eunoia.app.authentication.user_interface.display.SignupScreen
 import com.eunoia.app.user.user_interface.HomeScreen
+import com.eunoia.app.user.user_interface.RegistrationScreen
+import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
 
 @Composable
 fun AppNavHost(
-    viewModel: AuthViewModel,
+    authViewModel: AuthViewModel,
+    userViewModel: UserViewModel,
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     startDestination: String = ROUTE_LOGIN
@@ -24,13 +27,16 @@ fun AppNavHost(
         startDestination = startDestination
     ) {
         composable(ROUTE_LOGIN) {
-            LoginScreen(viewModel, navController)
+            LoginScreen(authViewModel, navController)
         }
         composable(ROUTE_SIGNUP) {
-            SignupScreen(viewModel, navController)
+            SignupScreen(authViewModel, navController)
         }
         composable(ROUTE_HOME) {
-            HomeScreen(viewModel, navController)
+            HomeScreen(authViewModel, navController)
+        }
+        composable(ROUTE_REG){
+            RegistrationScreen(userViewModel, navController)
         }
     }
 }

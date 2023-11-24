@@ -1,4 +1,4 @@
-package com.eunoia.app.authentication.user_interface.display
+package com.eunoia.app.user.user_interface
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -26,52 +26,37 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.eunoia.app.R
-import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.navigation.ROUTE_HOME
 import com.eunoia.app.navigation.ROUTE_LOGIN
 import com.eunoia.app.navigation.ROUTE_REG
+import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
 import com.eunoia.app.utils.Resource
+import com.eunoia.app.utils.Response
+import com.google.firebase.firestore.auth.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignupScreen(viewModel: AuthViewModel?, navController: NavController?) {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var name by remember { mutableStateOf("") }
+fun RegistrationScreen(viewModel: UserViewModel?, navController: NavController?){
+    var username by remember { mutableStateOf("") }
+    var age by remember { mutableStateOf("") }
+    var gender by remember { mutableStateOf("") }
 
-    val loginFlow = viewModel?.signupFlow?.collectAsState()
-
+    val userFlow = viewModel?.userFlow?.collectAsState()
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
-    ) {
+            .background(Color.White),
+    ){
         OutlinedTextField(
-            value = email,
+            value = username,
             onValueChange = {
-                email = it
+                username = it
             },
             label = {
-                Text(text = stringResource(id = R.string.ENTER_EMAIL))
-            },
-            colors = TextFieldDefaults.textFieldColors(),
-            keyboardOptions = KeyboardOptions(
-                capitalization = KeyboardCapitalization.None,
-                autoCorrect = false,
-                keyboardType = KeyboardType.Email,
-                imeAction = ImeAction.Next
-            ),
-            shape = CircleShape
-        )
-        OutlinedTextField(
-            value = name,
-            onValueChange = {
-                name = it
-            },
-            label = {
-                Text(text = stringResource(id = R.string.ENTER_NAME))
+                Text(text = stringResource(id = R.string.ENTER_USERNAME))
             },
             colors = TextFieldDefaults.textFieldColors(),
             keyboardOptions = KeyboardOptions(
@@ -83,44 +68,64 @@ fun SignupScreen(viewModel: AuthViewModel?, navController: NavController?) {
             shape = CircleShape
         )
         OutlinedTextField(
-            value = password,
+            value = age,
             onValueChange = {
-                password = it
+                age = it
             },
             label = {
-                Text(text = stringResource(id = R.string.ENTER_PASSWORD))
+                Text(text = stringResource(id = R.string.ENTER_AGE))
             },
             colors = TextFieldDefaults.textFieldColors(),
             keyboardOptions = KeyboardOptions(
                 capitalization = KeyboardCapitalization.None,
                 autoCorrect = false,
-                keyboardType = KeyboardType.Password,
-                imeAction = ImeAction.Done
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Next
+            ),
+            shape = CircleShape
+        )
+        OutlinedTextField(
+            value = gender,
+            onValueChange = {
+                gender = it
+            },
+            label = {
+                Text(text = stringResource(id = R.string.ENTER_GENDER))
+            },
+            colors = TextFieldDefaults.textFieldColors(),
+            keyboardOptions = KeyboardOptions(
+                capitalization = KeyboardCapitalization.None,
+                autoCorrect = false,
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Next
             ),
             shape = CircleShape
         )
         Button(
             onClick = {
-                viewModel?.signup(name, email, password)
+                viewModel?.register(age = age, gender = gender)
+                navController?.navigate(ROUTE_HOME){
+                    popUpTo(ROUTE_REG){inclusive = true}
+                }
             }
         ) {
             Text(text = stringResource(id = R.string.LOGINTEXT))
         }
     }
-    loginFlow?.value?.let {
+    userFlow?.value?.let {
         when (it) {
-            is Resource.Failure -> {
+            is Response.Error -> {
                 val context = LocalContext.current
-                Toast.makeText(context, it.exception.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
             }
 
-            Resource.Loading -> {
+            Response.Loading -> {
                 CircularProgressIndicator()
             }
 
-            is Resource.Success -> {
+            is Response.Success -> {
                 LaunchedEffect(Unit) {
-                    navController?.navigate(ROUTE_REG) {
+                    navController?.navigate(ROUTE_HOME) {
                         popUpTo(ROUTE_LOGIN) { inclusive = true }
                     }
                 }

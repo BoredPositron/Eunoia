@@ -15,16 +15,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.navigation.AppNavHost
 import com.eunoia.app.ui.theme.EunoiaTheme
+import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<AuthViewModel>()
+    private val authViewModel by viewModels<AuthViewModel>()
+    private val userViewModel by viewModels<UserViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             EunoiaTheme {
-                AppNavHost(viewModel = viewModel)
+                AppNavHost(authViewModel, userViewModel)
             }
         }
     }
