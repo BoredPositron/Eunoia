@@ -39,7 +39,7 @@ import com.google.firebase.firestore.auth.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegistrationScreen(viewModel: UserViewModel?, navController: NavController?){
+fun RegistrationScreen(viewModel: UserViewModel?, navController: NavController? ){
     var username by remember { mutableStateOf("") }
     var age by remember { mutableStateOf("") }
     var gender by remember { mutableStateOf("") }

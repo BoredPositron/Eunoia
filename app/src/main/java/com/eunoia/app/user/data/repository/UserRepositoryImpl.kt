@@ -27,7 +27,10 @@ class UserRepositoryImpl @Inject constructor(
             val name = auth.currentUser?.displayName.toString()
             val user = User(
                 uid = uid,
-
+                email = email,
+                name = name,
+                age = age,
+                gender = gender
             )
             val result = database.getReference("USERS").child(uid.toString()).setValue(user).await()
             Response.Success(true)
