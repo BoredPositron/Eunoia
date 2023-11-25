@@ -1,19 +1,16 @@
 package com.eunoia.app.user.user_interface
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.eunoia.app.R
 import com.eunoia.app.authentication.user_interface.AuthViewModel
@@ -31,7 +28,11 @@ fun HomeScreen(
     )
     Scaffold(
     ) {
-        Column(Modifier.padding(it)) {
+        Column(
+            Modifier
+                .padding(it),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center) {
             Button(
                 modifier = Modifier.padding(it),
                 onClick = {
@@ -39,16 +40,16 @@ fun HomeScreen(
                     navController!!.navigate(Routes.Login.route) {
                         popUpTo(Routes.Home.route) { inclusive = true }
                     }
-                }
+                },
             ) {
                 Text(text = stringResource(id = R.string.LOGOUT))
             }
-            Card(
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(200.dp),
-                shape = CircleShape
-            ) {
+//            Card(
+//                modifier = Modifier
+//                    .width(200.dp)
+//                    .height(200.dp),
+//                shape = CircleShape
+//            ) {
 //                AsyncImage(
 //                    model = viewModel!!.currentUser!!.photoUrl,
 //                    contentDescription = null,
@@ -57,7 +58,7 @@ fun HomeScreen(
 //                        .clip(CircleShape),
 //                    contentScale = ContentScale.Crop
 //                )
-            }
+//            }
         }
     }
 }

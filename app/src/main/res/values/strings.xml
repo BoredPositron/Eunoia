@@ -9,4 +9,5 @@
     <string name="ENTER_AGE">Enter your age</string>
     <string name="ENTER_GENDER">Enter Gender</string>
     <string name="SIGNUP_PROMPT">Don\'t have an account? Sign Up here!!</string>
+    <string name="PROCEED">Proceed</string>
 </resources>
