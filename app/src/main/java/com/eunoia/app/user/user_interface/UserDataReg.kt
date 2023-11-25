@@ -1,7 +1,6 @@
 package com.eunoia.app.user.user_interface
 
 import android.widget.Toast
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.CircleShape
@@ -20,7 +19,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -43,7 +41,6 @@ fun RegistrationScreen(viewModel: UserViewModel?, navController: NavController? 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
     ){
         OutlinedTextField(
             value = username,
