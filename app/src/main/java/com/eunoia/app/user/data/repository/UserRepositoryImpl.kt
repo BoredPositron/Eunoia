@@ -1,14 +1,13 @@
 package com.eunoia.app.user.data.repository
 
+import android.net.Uri
 import com.eunoia.app.user.data.model.User
 import com.eunoia.app.user.domain.UserRepository
-import com.eunoia.app.utils.Resource
 import com.eunoia.app.utils.Response
 import com.eunoia.app.utils.await
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -38,4 +37,16 @@ class UserRepositoryImpl @Inject constructor(
             Response.Error(e.message?: "Error")
         }
     }
+
+    override suspend fun addProfilePhoto(imageUri: Uri): Response<Boolean> {
+        return try{
+            val Result = auth.currentUser!!.updateProfile(
+                UserProfileChangeRequest.Builder().setPhotoUri(imageUri).build())
+                .await()
+            Response.Success(true)
+        }catch(e: Exception){
+            Response.Error(e.message?: "Error")
+        }
+    }
+
 }

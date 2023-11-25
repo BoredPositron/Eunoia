@@ -26,16 +26,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.eunoia.app.R
-import com.eunoia.app.navigation.ROUTE_HOME
-import com.eunoia.app.navigation.ROUTE_LOGIN
-import com.eunoia.app.navigation.ROUTE_REG
+import com.eunoia.app.navigation.Routes
 import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
-import com.eunoia.app.utils.Resource
 import com.eunoia.app.utils.Response
-import com.google.firebase.firestore.auth.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -104,9 +99,6 @@ fun RegistrationScreen(viewModel: UserViewModel?, navController: NavController? 
         Button(
             onClick = {
                 viewModel?.register(age = age, gender = gender)
-                navController?.navigate(ROUTE_HOME){
-                    popUpTo(ROUTE_REG){inclusive = true}
-                }
             }
         ) {
             Text(text = stringResource(id = R.string.LOGINTEXT))
@@ -125,8 +117,8 @@ fun RegistrationScreen(viewModel: UserViewModel?, navController: NavController? 
 
             is Response.Success -> {
                 LaunchedEffect(Unit) {
-                    navController?.navigate(ROUTE_HOME) {
-                        popUpTo(ROUTE_LOGIN) { inclusive = true }
+                    navController?.navigate(Routes.PickProfilePhoto.route) {
+                        popUpTo(Routes.Login.route) { inclusive = true }
                     }
                 }
             }

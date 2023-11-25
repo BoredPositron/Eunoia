@@ -3,19 +3,15 @@ package com.eunoia.app.authentication.user_interface.display
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -31,17 +27,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
 import com.eunoia.app.R
 import com.eunoia.app.authentication.user_interface.AuthViewModel
-import com.eunoia.app.navigation.ROUTE_HOME
-import com.eunoia.app.navigation.ROUTE_LOGIN
-import com.eunoia.app.navigation.ROUTE_SIGNUP
+import com.eunoia.app.navigation.Routes
 import com.eunoia.app.utils.Resource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -102,8 +92,8 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
         Text(
             text = "Sign Up",
             modifier = Modifier.clickable{
-                navController!!.navigate(ROUTE_SIGNUP){
-                    popUpTo(ROUTE_LOGIN){inclusive = true}
+                navController!!.navigate(Routes.SignUp.route){
+                    popUpTo(Routes.Login.route){inclusive = true}
                 }
             })
     }
@@ -120,8 +110,8 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
 
             is Resource.Success -> {
                 LaunchedEffect(Unit) {
-                    navController?.navigate(ROUTE_HOME) {
-                        popUpTo(ROUTE_LOGIN) { inclusive = true }
+                    navController?.navigate(Routes.Home.route) {
+                        popUpTo(Routes.Login.route) { inclusive = true }
                     }
                 }
             }

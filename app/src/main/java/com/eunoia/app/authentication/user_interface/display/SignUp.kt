@@ -29,9 +29,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.navigation.NavController
 import com.eunoia.app.R
 import com.eunoia.app.authentication.user_interface.AuthViewModel
-import com.eunoia.app.navigation.ROUTE_HOME
-import com.eunoia.app.navigation.ROUTE_LOGIN
-import com.eunoia.app.navigation.ROUTE_REG
+import com.eunoia.app.navigation.Routes
 import com.eunoia.app.utils.Resource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -120,8 +118,8 @@ fun SignupScreen(viewModel: AuthViewModel?, navController: NavController?) {
 
             is Resource.Success -> {
                 LaunchedEffect(Unit) {
-                    navController?.navigate(ROUTE_REG) {
-                        popUpTo(ROUTE_REG) { inclusive = true }
+                    navController?.navigate(Routes.Registration.route) {
+                        popUpTo(Routes.Registration.route) { inclusive = true }
                     }
                 }
             }
