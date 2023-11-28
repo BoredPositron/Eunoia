@@ -1,9 +1,9 @@
-package com.eunoia.app.user.user_interface.viewmodel
+package com.eunoia.app.user.registration.user_interface.viewmodel
 
 import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eunoia.app.user.domain.UserRepository
+import com.eunoia.app.user.registration.domain.UserRepository
 import com.eunoia.app.utils.Resource
 import com.eunoia.app.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel

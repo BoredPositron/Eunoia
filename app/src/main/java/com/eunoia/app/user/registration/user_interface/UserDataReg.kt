@@ -1,4 +1,4 @@
-package com.eunoia.app.user.user_interface
+package com.eunoia.app.user.registration.user_interface
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -29,7 +29,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.navigation.NavController
 import com.eunoia.app.R
 import com.eunoia.app.navigation.Routes
-import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
+import com.eunoia.app.user.registration.user_interface.viewmodel.UserViewModel
 import com.eunoia.app.utils.Response
 
 @OptIn(ExperimentalMaterial3Api::class)

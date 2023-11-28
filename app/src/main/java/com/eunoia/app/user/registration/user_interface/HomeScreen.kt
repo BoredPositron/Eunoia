@@ -1,4 +1,4 @@
-package com.eunoia.app.user.user_interface
+package com.eunoia.app.user.registration.user_interface
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height

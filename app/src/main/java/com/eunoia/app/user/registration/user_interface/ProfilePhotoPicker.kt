@@ -1,4 +1,4 @@
-package com.eunoia.app.user.user_interface
+package com.eunoia.app.user.registration.user_interface
 
 import android.net.Uri
 import android.widget.Toast
@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.eunoia.app.navigation.Routes
-import com.eunoia.app.user.user_interface.viewmodel.ProfilePhotoViewModel
+import com.eunoia.app.user.registration.user_interface.viewmodel.ProfilePhotoViewModel
 import com.eunoia.app.utils.Response
 
 @Composable
@@ -61,7 +61,8 @@ fun PickProfilePhoto(viewModel: ProfilePhotoViewModel?, navController: NavHostCo
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(CircleShape),
+                    .clip(CircleShape)
+                    .background(Color.Transparent),
                 contentScale = ContentScale.Crop
             )
         }

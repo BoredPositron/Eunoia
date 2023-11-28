@@ -1,5 +1,7 @@
 package com.eunoia.app.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -9,11 +11,11 @@ import androidx.navigation.compose.rememberNavController
 import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.authentication.user_interface.display.LoginScreen
 import com.eunoia.app.authentication.user_interface.display.SignupScreen
-import com.eunoia.app.user.user_interface.HomeScreen
-import com.eunoia.app.user.user_interface.PickProfilePhoto
-import com.eunoia.app.user.user_interface.RegistrationScreen
-import com.eunoia.app.user.user_interface.viewmodel.ProfilePhotoViewModel
-import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
+import com.eunoia.app.user.registration.user_interface.HomeScreen
+import com.eunoia.app.user.registration.user_interface.PickProfilePhoto
+import com.eunoia.app.user.registration.user_interface.RegistrationScreen
+import com.eunoia.app.user.registration.user_interface.viewmodel.ProfilePhotoViewModel
+import com.eunoia.app.user.registration.user_interface.viewmodel.UserViewModel
 
 @Composable
 fun AppNavHost(
@@ -35,7 +37,14 @@ fun AppNavHost(
         composable(Routes.SignUp.route) {
             SignupScreen(authViewModel, navController)
         }
-        composable(Routes.Home.route) {
+        composable(
+            route = Routes.Home.route,
+            enterTransition = {
+                slideInVertically(
+                    animationSpec = tween(700),
+                    initialOffsetY = {-500}
+                )
+            }) {
             HomeScreen(authViewModel,navController)
         }
         composable(Routes.Registration.route){

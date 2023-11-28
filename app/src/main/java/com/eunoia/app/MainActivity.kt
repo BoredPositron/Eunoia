@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.navigation.AppNavHost
 import com.eunoia.app.ui.theme.EunoiaTheme
-import com.eunoia.app.user.user_interface.viewmodel.ProfilePhotoViewModel
-import com.eunoia.app.user.user_interface.viewmodel.UserViewModel
+import com.eunoia.app.user.registration.user_interface.viewmodel.ProfilePhotoViewModel
+import com.eunoia.app.user.registration.user_interface.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

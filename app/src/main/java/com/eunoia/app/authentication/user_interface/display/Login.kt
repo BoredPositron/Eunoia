@@ -3,11 +3,32 @@ package com.eunoia.app.authentication.user_interface.display
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+<<<<<<< Updated upstream
+=======
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+>>>>>>> Stashed changes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+<<<<<<< Updated upstream
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+=======
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+>>>>>>> Stashed changes
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
@@ -55,7 +76,18 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
             label = {
                 Text(text = stringResource(id = R.string.ENTER_EMAIL))
             },
+<<<<<<< Updated upstream
             colors = TextFieldDefaults.textFieldColors(),
+=======
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = themeRed,
+                unfocusedBorderColor = themeBlack,
+                unfocusedTrailingIconColor = themeBlack,
+                focusedTrailingIconColor = themeRed,
+                focusedLabelColor = themeRed,
+                textColor = themeBlack
+            ),
+>>>>>>> Stashed changes
             keyboardOptions = KeyboardOptions(
                 capitalization = KeyboardCapitalization.None,
                 autoCorrect = false,
@@ -72,7 +104,18 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
             label = {
                 Text(text = stringResource(id = R.string.ENTER_PASSWORD))
             },
+<<<<<<< Updated upstream
             colors = TextFieldDefaults.textFieldColors(),
+=======
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = themeRed,
+                unfocusedBorderColor = themeBlack,
+                unfocusedTrailingIconColor = themeBlack,
+                focusedTrailingIconColor = themeRed,
+                focusedLabelColor = themeRed,
+                textColor = themeBlack
+            ),
+>>>>>>> Stashed changes
             keyboardOptions = KeyboardOptions(
                 capitalization = KeyboardCapitalization.None,
                 autoCorrect = false,
@@ -105,7 +148,31 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
             }
 
             Resource.Loading -> {
-                CircularProgressIndicator()
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Transparent),
+                    contentAlignment = Alignment.Center
+                ){
+                    Card (
+                        modifier = Modifier
+                            .background(Color.Transparent)
+                            .width(200.dp)
+                            .height(200.dp),
+                        shape = RoundedCornerShape(10.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White
+                        )
+                    ){
+                        CircularProgressIndicator(
+                            modifier = Modifier
+                                .width(200.dp)
+                                .padding(20.dp),
+                            strokeWidth = 10.dp,
+
+                        )
+                    }
+                }
             }
 
             is Resource.Success -> {
