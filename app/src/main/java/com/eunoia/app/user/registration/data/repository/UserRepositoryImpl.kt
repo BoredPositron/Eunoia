@@ -21,7 +21,9 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun register(
         age: String,
-        gender: String
+        gender: String,
+        primaryPronoun: String,
+        secondaryPronoun: String
     ): Response<Boolean> {
         return try {
             val uid = auth.currentUser?.uid.toString()
@@ -32,7 +34,9 @@ class UserRepositoryImpl @Inject constructor(
                 email = email,
                 name = name,
                 age = age,
-                gender = gender
+                gender = gender,
+                primaryPronoun = primaryPronoun,
+                secondaryPronoun = secondaryPronoun
             )
             val result = database.getReference("USERS").child(uid.toString()).setValue(user).await()
             Response.Success(true)

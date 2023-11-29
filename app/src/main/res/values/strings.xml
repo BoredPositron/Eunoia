@@ -8,4 +8,14 @@
     <string name="ENTER_USERNAME">Choose a Username</string>
     <string name="ENTER_AGE">Enter your age</string>
     <string name="ENTER_GENDER">Enter Gender</string>
+    <string name="SIGNUP_PROMPT">Don\'t have an account? Sign up here.</string>
+    <string name="SIGNUP_TXT">Sign Up</string>
+    <string name="PROCEED">Proceed</string>
+    <string name="MALE">Male</string>
+    <string name="FEMALE">Female</string>
+    <string name="LUKY">Let us get to know you!</string>
+    <string name="CHOOSE_YOUR_GENDER">Choose the gender that you identify with:</string>
+    <string name="CHOOSE_PRONOUNS">Choose your pronouns here:</string>
+    <string name="PRIMARY_PRONOUN">Select Primary Pronoun:</string>
+    <string name="SECONDARY_PRONOUN">Select Secondary Pronoun</string>
 </resources>
