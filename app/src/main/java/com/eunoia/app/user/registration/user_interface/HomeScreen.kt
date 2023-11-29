@@ -25,6 +25,7 @@ fun HomeScreen(
     viewModel: AuthViewModel?,
     navController: NavHostController?
 ) {
+
     val items = listOf(
         Routes.Home,
         Routes.Profile

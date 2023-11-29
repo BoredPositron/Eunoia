@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.eunoia.app"
-        minSdk = 31
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -87,4 +87,5 @@ dependencies {
     kapt ("com.google.dagger:hilt-android-compiler:2.44")
 
     implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation ("androidx.compose.material3:material3:1.2.0-alpha11")
 }

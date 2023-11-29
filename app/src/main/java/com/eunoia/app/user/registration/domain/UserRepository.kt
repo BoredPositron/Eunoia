@@ -4,6 +4,6 @@ import android.net.Uri
 import com.eunoia.app.utils.Response
 
 interface UserRepository {
-    suspend fun register(age: String, gender: String): Response<Boolean>
+    suspend fun register(age: String, gender: String, primaryPronoun: String, secondaryPronoun: String): Response<Boolean>
     suspend fun uploadProfilePhoto(imageUri: Uri): Response<Boolean>
 }

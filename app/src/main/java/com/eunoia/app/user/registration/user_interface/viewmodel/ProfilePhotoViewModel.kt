@@ -20,7 +20,7 @@ class ProfilePhotoViewModel @Inject constructor(
 
     fun updateProfilePhoto(imageUri: Uri) = viewModelScope.launch {
         _pictureFlow.value = Response.Loading
-        val result = repository.addProfilePhoto(imageUri)
+        val result = repository.uploadProfilePhoto(imageUri)
         _pictureFlow.value = result
     }
 }
