@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.eunoia.app.authentication.user_interface.AuthViewModel
 import com.eunoia.app.navigation.AppNavHost
 import com.eunoia.app.ui.theme.EunoiaTheme
+import com.eunoia.app.user.registration.user_interface.viewmodel.HomeViewModel
 import com.eunoia.app.user.registration.user_interface.viewmodel.ProfilePhotoViewModel
 import com.eunoia.app.user.registration.user_interface.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,11 +17,12 @@ class MainActivity : AppCompatActivity() {
     private val authViewModel by viewModels<AuthViewModel>()
     private val userViewModel by viewModels<UserViewModel>()
     private val photoViewModel by viewModels<ProfilePhotoViewModel>()
+    private val homeViewModel by viewModels<HomeViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             EunoiaTheme {
-                AppNavHost(authViewModel, userViewModel, photoViewModel)
+                AppNavHost(authViewModel, userViewModel, photoViewModel, homeViewModel)
             }
         }
     }

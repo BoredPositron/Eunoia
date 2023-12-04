@@ -12,14 +12,22 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(
-    private val repository: UserRepository
-): ViewModel(){
+    private val repository: UserRepository,
+) : ViewModel() {
     private val _userFlow = MutableStateFlow<Response<Boolean>?>(null)
     val userFlow: StateFlow<Response<Boolean>?> = _userFlow
 
-    fun register(age: String, gender: String, primaryPronoun: String, secondaryPronoun: String) = viewModelScope.launch{
+
+    fun register(
+        age: String,
+        gender: String,
+        primaryPronoun: String,
+        secondaryPronoun: String,
+        orientation: String,
+        choice: String
+    ) = viewModelScope.launch {
         _userFlow.value = Response.Loading
-        val result = repository.register( age, gender, primaryPronoun, secondaryPronoun)
+        val result = repository.register(age, gender, primaryPronoun, secondaryPronoun, orientation, choice)
         _userFlow.value = result
     }
 }

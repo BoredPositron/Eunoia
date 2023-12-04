@@ -13,6 +13,7 @@ sealed class Routes(var title: String, var icon: ImageVector?, var route: String
     object Registration: Routes("Registration", null, "registration")
     object Profile: Routes("Profile", Icons.Default.Person, "profile")
     object PickProfilePhoto: Routes("Profile Photo", Icons.Default.Home, "profilephoto")
+    object Matches: Routes("Matches", null, "matches")
 }
 
 

@@ -6,6 +6,7 @@ import com.eunoia.app.user.registration.data.repository.UserRepositoryImpl
 import com.eunoia.app.user.registration.domain.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import dagger.Module
 import dagger.Provides
@@ -30,4 +31,9 @@ class AppModule {
 
     @Provides
     fun provideCloudStorage(): FirebaseStorage = FirebaseStorage.getInstance()
+
+    @Provides
+    fun provideDb(): FirebaseFirestore = FirebaseFirestore.getInstance()
+
+
 }

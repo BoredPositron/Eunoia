@@ -88,4 +88,8 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.2.2")
     implementation ("androidx.compose.material3:material3:1.2.0-alpha11")
+
+    implementation("com.airbnb.android:lottie-compose:4.0.0")
+    implementation ("com.github.bumptech.glide:compose:1.0.0-beta01")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 }

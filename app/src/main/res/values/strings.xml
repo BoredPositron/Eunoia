@@ -17,5 +17,15 @@
     <string name="CHOOSE_YOUR_GENDER">Choose the gender that you identify with:</string>
     <string name="CHOOSE_PRONOUNS">Choose your pronouns here:</string>
     <string name="PRIMARY_PRONOUN">Select Primary Pronoun:</string>
-    <string name="SECONDARY_PRONOUN">Select Secondary Pronoun</string>
+    <string name="SECONDARY_PRONOUN">Select Secondary Pronoun:</string>
+    <string name="CHOOSE_PROFILE_PHOTO">Pick a profile photo here</string>
+    <string name="PICK_PHOTO">Pick Photo</string>
+    <string name="LOADING">Loading...</string>
+    <string name="DOB">Enter Date of Birth:</string>
+    <string name="SEXUAL_IDENTITY">Select your sexual identity:</string>
+    <string name="ENTER_CITY">City</string>
+    <string name="LOCATION">Where are you located?</string>
+    <string name="ENTER_COUNTRY">Country</string>
+    <string name="CHOICE">What are you looking for?</string>
+    <string name="ENTER_TXT">Enter Message Here</string>
 </resources>

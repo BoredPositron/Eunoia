@@ -6,14 +6,11 @@ import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -21,9 +18,6 @@ import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -55,6 +49,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.eunoia.app.R
 import com.eunoia.app.authentication.user_interface.AuthViewModel
+import com.eunoia.app.common.LoadingScreen.LoadingScreen
 import com.eunoia.app.navigation.Routes
 import com.eunoia.app.ui.theme.Raleway
 import com.eunoia.app.ui.theme.themeBlack
@@ -216,36 +211,12 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController?) {
             }
 
             Resource.Loading -> {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.Transparent),
-                    contentAlignment = Alignment.Center
-                ){
-                    Card (
-                        modifier = Modifier
-                            .background(Color.Transparent)
-                            .width(200.dp)
-                            .height(200.dp),
-                        shape = RoundedCornerShape(10.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color.White
-                        )
-                    ){
-                        CircularProgressIndicator(
-                            modifier = Modifier
-                                .width(200.dp)
-                                .padding(20.dp),
-                            strokeWidth = 10.dp,
-
-                        )
-                    }
-                }
+                LoadingScreen()
             }
 
             is Resource.Success -> {
                 LaunchedEffect(Unit) {
-                    navController?.navigate(Routes.Home.route) {
+                    navController?.navigate(Routes.Matches.route) {
                         popUpTo(Routes.Login.route) { inclusive = true }
                     }
                 }

@@ -15,7 +15,6 @@ import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -47,6 +46,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.eunoia.app.R
 import com.eunoia.app.authentication.user_interface.AuthViewModel
+import com.eunoia.app.common.LoadingScreen.LoadingScreen
 import com.eunoia.app.navigation.Routes
 import com.eunoia.app.ui.theme.Raleway
 import com.eunoia.app.ui.theme.themeBlack
@@ -228,7 +228,7 @@ fun SignupScreen(viewModel: AuthViewModel?, navController: NavController?) {
             }
 
             Resource.Loading -> {
-                CircularProgressIndicator()
+                LoadingScreen()
             }
 
             is Resource.Success -> {
